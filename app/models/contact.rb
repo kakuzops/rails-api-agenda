@@ -1,26 +1,18 @@
 class Contact < ApplicationRecord
   belongs_to :kind, optional: true
+  has_many :phones
 
-  # def author
-  #   "Leonardo Silva"
-  # end
-  #
-  # def kind_description
-  #   self.kind.descriptiont
-  # end
-  #
-  # def as_json(options={})
-  #   super(
-  #       root: true,
-  #       methods: [:author, :kind_description],
-  #   )
-  # end
+  accepts_nested_attributes_for :phones
 
-  def hello
-    I18n.t('hello')
+  def birthdate_br
+    I18n.l(self.birthdate) unless self.birthdate.blank?
   end
 
-  def i18n
-    I18n.default_locale
+
+  def as_json(options={})
+    h = super(options)
+    h[:birthdate] = (I18n.l(self.birthdate) unless self.birthdate.blank?)
+    h
   end
+
 end

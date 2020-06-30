@@ -12,9 +12,9 @@ gem 'rails', '~> 5.0.1'
 gem 'sqlite3', '1.3.13'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
-gem 'faker'
 
 gem 'rails-i18n', '~> 5.1'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -31,6 +31,8 @@ gem 'rails-i18n', '~> 5.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'faker'
+  gem 'pry-rails'
 end
 
 group :development do
